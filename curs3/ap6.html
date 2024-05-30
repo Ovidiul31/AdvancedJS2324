@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Person {
+            constructor(_name, _title) {
+                this.name = _name;
+                this.title = _title;
+                if (this.constructor == Person) {
+                    throw new Error("Object of Abstract Class cannot be created");
+                }
+            }
+            //abstract
+            getName() {
+                throw new Error("Abstract Method has no implementation");
+            }
+            details = function () {
+                return `${this.name} is a ${this.title}.`;
+            }
+        }
+        class Demo extends Person {
+            getName() {
+                return this.name;
+            }
+        }
+        //const person1 = new Person('Ion', 'Web developer');
+        const person = new Demo('Ion', 'Web developer');
+        console.log(person)
+        console.log(person.getName())
+
+        console.log(person.details())
+        // Ion is a Web developer.
+    </script>
+</body>
+
+</html>
